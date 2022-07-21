@@ -10,7 +10,6 @@ populateUI()
 // Let because price are changing We can Not have const
 let ticketPrice= +movieSelect.value;
 
-
 // Save selected movie index and price
 function setMovieData(movieIndex, moviePrice) {
   localStorage.setItem('selectedMovieIndex', movieIndex);
@@ -21,7 +20,7 @@ function setMovieData(movieIndex, moviePrice) {
 function updateSelectedCount(){
 const selectedSeats= document.querySelectorAll('.row .seat.selected');
 
-//1- Copy the selected seats to arr (Using Spread operator or Spread Syntax...)- Convert the nodList to array
+//1- Copy the selected seats to arr (Using Spread operator or Spread Syntax...)-Convert the nodList to array
 // 2- Map through array
 //3- Return a new array index
 
@@ -34,11 +33,7 @@ const seatsIndex= [...selectedSeats].map(function(seat){
 
 // Wrap in JSON.stringify because SeatsIndex is an array
 localStorage.setItem('selectedSeats', JSON.stringify(seatsIndex));
-
 localStorage.setItem
-
-// console.log(seatsIndex);
-
 const selectedSeatsCount= selectedSeats.length;
 
 count.innerText= selectedSeatsCount;
@@ -50,7 +45,6 @@ total.innerText= selectedSeatsCount * ticketPrice;
 function populateUI(){
   // Wrap in JSON.pars to have a number in array.(JSON.pars is opposite of JSON.strigify)
   const selectedSeats= JSON.parse(localStorage.getItem('selectedSeats'));
-  // console.log(selectedSeats)
 
   // If any seat is in selected seats and not empty array neither
   if (selectedSeats !== null && selectedSeats.length > 0){
@@ -60,7 +54,6 @@ function populateUI(){
       }
     });
   }
-
   //Implementing the Total price and nummber of the seats 
   const selectedMovieIndex= localStorage.getItem('selectedMovieIndex');
   if (selectedMovieIndex !== null){ 
@@ -94,6 +87,6 @@ container.addEventListener('click', (e) =>{
 
 });
 
-// Initial Count and Total seat
+// Initial Count and Total seat to keep our reservation on even after reload 
 updateSelectedCount()
 
