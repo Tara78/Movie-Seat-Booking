@@ -4,12 +4,19 @@ const count= document.getElementById('count');
 const total= document.getElementById('total');
 const movieSelect= document.getElementById('movie');
 
+// populateUI()
+
 // adding + to trun to the number insetad of wrap to the ParsInt function
 let ticketPrice= +movieSelect.value;
 
 // Update Total and Count tickets)
 function updateSelectedCount(){
 const selectedSeats= document.querySelectorAll('.row .seat.selected');
+
+// const seatsIndex= [...selectedSeats].map(seat=>[...seats].indexOf(seat));
+// localStorage.setItem('selectedSeats', JSON.stringify(seatsIndex));
+
+
 // Length of selected seats
 const selectedSeatsCount= selectedSeats.length;
 
